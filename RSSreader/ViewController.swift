@@ -21,10 +21,12 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
     let TITLE_ELEMENT_NAME = "title"
     let LINK_ELEMENT_NAME   = "link"
     
+    //セルの行数
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return self.feedItems.count
     }
     
+    //セルのテキストを追加
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell: UITableViewCell = UITableViewCell(style: UITableViewCellStyle.subtitle, reuseIdentifier: "Cell")
         let feedItem = self.feedItems[indexPath.row]
@@ -32,11 +34,17 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
         return cell
     }
     
+    //セルがタップされた時
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let feedItem = self.feedItems[indexPath.row]
         UIApplication.shared.open(URL(string: feedItem.url)!, options: [:], completionHandler: nil)
     }
     
+    
+    let parser = ParserController()
+    
+    
+    // 解析中に要素の開始タグがあったときに実行されるメソッド
     func parser(_ parser: XMLParser, didStartElement elementName: String, namespaceURI: String?, qualifiedName qName: String?, attributes attributeDict: [String : String] = [:]) {
         self.currentElementName = nil
         if elementName == ITEM_ELEMENT_NAME {
@@ -46,6 +54,7 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
         }
     }
     
+    // 開始タグと終了タグでくくられたデータがあったときに実行されるメソッド
     func parser(_ parser: XMLParser, foundCharacters string: String) {
         if self.feedItems.count > 0 {
             let lastItem = self.feedItems[self.feedItems.count - 1]
@@ -60,14 +69,17 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
         }
     }
     
+    // 解析中に要素の終了タグがあったときに実行されるメソッド
     func parser(_ parser: XMLParser, didEndElement elementName: String, namespaceURI: String?, qualifiedName qName: String?) {
         self.currentElementName = nil
     }
     
+    // XML解析終了時に実行されるメソッド
     func parserDidEndDocument(_ parser: XMLParser) {
         self.tableView.reloadData()
     }
     
+    // 初期表示時に必要な処理を設定します。
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -76,6 +88,7 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
         parser.parse()
     }
     
+    // メモリーが不足にてインスタンスが破棄される直前に呼ばれます。
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
