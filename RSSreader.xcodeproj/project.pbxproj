@@ -13,7 +13,6 @@
 		2035D32321469AD90060823B /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2035D32221469AD90060823B /* Assets.xcassets */; };
 		2035D32621469AD90060823B /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2035D32421469AD90060823B /* LaunchScreen.storyboard */; };
 		2035D330214B4FB30060823B /* news.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2035D32F214B4FB30060823B /* news.swift */; };
-		20ECDE8C215CAD9B007C587C /* ParserController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20ECDE8B215CAD9B007C587C /* ParserController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -25,7 +24,6 @@
 		2035D32521469AD90060823B /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		2035D32721469AD90060823B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		2035D32F214B4FB30060823B /* news.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = news.swift; sourceTree = "<group>"; };
-		20ECDE8B215CAD9B007C587C /* ParserController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ParserController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -62,7 +60,6 @@
 				2035D31D21469AD80060823B /* ViewController.swift */,
 				2035D31F21469AD80060823B /* Main.storyboard */,
 				2035D32F214B4FB30060823B /* news.swift */,
-				20ECDE8B215CAD9B007C587C /* ParserController.swift */,
 				2035D32221469AD90060823B /* Assets.xcassets */,
 				2035D32421469AD90060823B /* LaunchScreen.storyboard */,
 				2035D32721469AD90060823B /* Info.plist */,
@@ -143,7 +140,6 @@
 			files = (
 				2035D330214B4FB30060823B /* news.swift in Sources */,
 				2035D31E21469AD80060823B /* ViewController.swift in Sources */,
-				20ECDE8C215CAD9B007C587C /* ParserController.swift in Sources */,
 				2035D31C21469AD80060823B /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
